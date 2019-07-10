@@ -1,6 +1,6 @@
-using my.Collaboration as my from '../db/CollaborationTypeMetadata';
+using ning.CollaborationType as my from '../db/CollaborationTypeMetadata';
 
 
-service Collaboration {
-    @readonly entity Collaboration as projection on my.CollaborationTypeMetadata;
+service CollaborationType {
+    entity CollaborationTypeMetadata as projection on my.CollaborationTypeMetadata;
 }

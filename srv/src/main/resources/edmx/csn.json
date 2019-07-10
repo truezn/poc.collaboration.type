@@ -1,46 +1,110 @@
 {
-  "namespace": "my.Collaboration",
+  "namespace": "ning.CollaborationType",
   "definitions": {
-    "Collaboration": {
+    "CollaborationType": {
       "kind": "service"
     },
-    "Collaboration.Collaboration": {
+    "CollaborationType.CollaborationTypeMetadata": {
       "kind": "entity",
-      "@Capabilities.DeleteRestrictions.Deletable": false,
-      "@Capabilities.InsertRestrictions.Insertable": false,
-      "@Capabilities.UpdateRestrictions.Updatable": false,
-      "@cds.persistence.name": "COLLABORATION_COLLABORATION",
-      "@readonly": true,
+      "@UI.FieldGroup#HeaderInfoField.Data": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "collaborationTypeId"
+          }
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "version"
+          }
+        }
+      ],
+      "@UI.FieldGroup#HeaderInfoField.Label": "Header Infomation",
+      "@UI.HeaderFacets": [
+        {
+          "$Type": "UI.ReferenceFacet",
+          "Target": "@UI.FieldGroup#HeaderInfoField"
+        }
+      ],
+      "@UI.HeaderInfo.Description.Value": "Collaboration Type",
+      "@UI.HeaderInfo.Title.Value": "Define Collaboration Type",
+      "@UI.LineItem": [
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "collaborationTypeId"
+          },
+          "Label": "Collaboration Type"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "version"
+          },
+          "Label": "Version"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "createdOn"
+          },
+          "Label": "Create On"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "statusProfile"
+          },
+          "Label": "Status Profile"
+        },
+        {
+          "$Type": "UI.DataField",
+          "Value": {
+            "=": "state"
+          },
+          "Label": "State"
+        }
+      ],
+      "@cds.persistence.name": "COLLABORATIONTYPE_COLLABORATIONTYPEMETADATA",
       "query": {
         "SELECT": {
           "from": {
             "ref": [
-              "my.Collaboration.CollaborationTypeMetadata"
+              "ning.CollaborationType.CollaborationTypeMetadata"
             ]
           }
         }
       },
       "elements": {
         "collaborationTypeId": {
+          "@Common.FieldControl": {
+            "#": "Mandatory"
+          },
+          "@Common.Label": "Collaboratioen Type",
           "@cds.persistence.name": "COLLABORATIONTYPEID",
           "key": true,
           "type": "cds.String"
         },
         "version": {
+          "@Common.Label": "Version",
           "@cds.persistence.name": "VERSION",
           "key": true,
           "type": "cds.String"
         },
         "createdOn": {
+          "@Common.Label": "Create on",
           "@cds.persistence.name": "CREATEDON",
           "type": "cds.Timestamp"
         },
         "state": {
+          "@Common.Label": "State",
           "@cds.persistence.name": "STATE",
           "type": "cds.Integer"
         },
         "statusProfile": {
           "@cds.persistence.name": "STATUSPROFILE",
+          "@titile": "Status Profile",
           "type": "cds.String"
         },
         "changedOn": {
@@ -50,9 +114,34 @@
       },
       "$syntax": "projection"
     },
-    "my.Collaboration.CollaborationTypeMetadata": {
+    "ning.CollaborationType.CollaborationTypeDescription": {
       "kind": "entity",
-      "@cds.persistence.name": "MY_COLLABORATION_COLLABORATIONTYPEMETADATA",
+      "@cds.persistence.name": "NING_COLLABORATIONTYPE_COLLABORATIONTYPEDESCRIPTION",
+      "elements": {
+        "collaborationTypeId": {
+          "@cds.persistence.name": "COLLABORATIONTYPEID",
+          "key": true,
+          "type": "cds.String"
+        },
+        "version": {
+          "@cds.persistence.name": "VERSION",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "language": {
+          "@cds.persistence.name": "LANGUAGE",
+          "key": true,
+          "type": "cds.String"
+        },
+        "descripton": {
+          "@cds.persistence.name": "DESCRIPTON",
+          "type": "cds.String"
+        }
+      }
+    },
+    "ning.CollaborationType.CollaborationTypeMetadata": {
+      "kind": "entity",
+      "@cds.persistence.name": "NING_COLLABORATIONTYPE_COLLABORATIONTYPEMETADATA",
       "elements": {
         "collaborationTypeId": {
           "@cds.persistence.name": "COLLABORATIONTYPEID",
@@ -79,6 +168,123 @@
         "changedOn": {
           "@cds.persistence.name": "CHANGEDON",
           "type": "cds.Timestamp"
+        },
+        "purpose": {
+          "@cds.persistence.name": "PURPOSE",
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "ning.CollaborationTypePurpose.CollaborationTypePurpose",
+          "on": [
+            {
+              "ref": [
+                "purpose",
+                "collaborationTypeId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "collaborationTypeId"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "purpose",
+                "version"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "version"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "purpose",
+                "language"
+              ]
+            },
+            "=",
+            {
+              "val": "EN"
+            }
+          ]
+        },
+        "description": {
+          "@cds.persistence.name": "DESCRIPTION",
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "ning.CollaborationType.CollaborationTypeDescription",
+          "on": [
+            {
+              "ref": [
+                "description",
+                "collaborationTypeId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "collaborationTypeId"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "description",
+                "version"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "version"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "description",
+                "language"
+              ]
+            },
+            "=",
+            {
+              "val": "EN"
+            }
+          ]
+        }
+      }
+    },
+    "ning.CollaborationTypePurpose.CollaborationTypePurpose": {
+      "kind": "entity",
+      "@cds.persistence.name": "NING_COLLABORATIONTYPEPURPOSE_COLLABORATIONTYPEPURPOSE",
+      "elements": {
+        "collaborationTypeId": {
+          "@cds.persistence.name": "COLLABORATIONTYPEID",
+          "key": true,
+          "type": "cds.String"
+        },
+        "version": {
+          "@cds.persistence.name": "VERSION",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "language": {
+          "@cds.persistence.name": "LANGUAGE",
+          "key": true,
+          "type": "cds.String"
+        },
+        "purpose": {
+          "@cds.persistence.name": "PURPOSE",
+          "type": "cds.String"
         }
       }
     }
