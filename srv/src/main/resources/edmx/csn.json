@@ -1,0 +1,94 @@
+{
+  "namespace": "my.Collaboration",
+  "definitions": {
+    "Collaboration": {
+      "kind": "service"
+    },
+    "Collaboration.Collaboration": {
+      "kind": "entity",
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@cds.persistence.name": "COLLABORATION_COLLABORATION",
+      "@readonly": true,
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "my.Collaboration.CollaborationTypeMetadata"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "collaborationTypeId": {
+          "@cds.persistence.name": "COLLABORATIONTYPEID",
+          "key": true,
+          "type": "cds.String"
+        },
+        "version": {
+          "@cds.persistence.name": "VERSION",
+          "key": true,
+          "type": "cds.String"
+        },
+        "createdOn": {
+          "@cds.persistence.name": "CREATEDON",
+          "type": "cds.Timestamp"
+        },
+        "state": {
+          "@cds.persistence.name": "STATE",
+          "type": "cds.Integer"
+        },
+        "statusProfile": {
+          "@cds.persistence.name": "STATUSPROFILE",
+          "type": "cds.String"
+        },
+        "changedOn": {
+          "@cds.persistence.name": "CHANGEDON",
+          "type": "cds.Timestamp"
+        }
+      },
+      "$syntax": "projection"
+    },
+    "my.Collaboration.CollaborationTypeMetadata": {
+      "kind": "entity",
+      "@cds.persistence.name": "MY_COLLABORATION_COLLABORATIONTYPEMETADATA",
+      "elements": {
+        "collaborationTypeId": {
+          "@cds.persistence.name": "COLLABORATIONTYPEID",
+          "key": true,
+          "type": "cds.String"
+        },
+        "version": {
+          "@cds.persistence.name": "VERSION",
+          "key": true,
+          "type": "cds.String"
+        },
+        "createdOn": {
+          "@cds.persistence.name": "CREATEDON",
+          "type": "cds.Timestamp"
+        },
+        "state": {
+          "@cds.persistence.name": "STATE",
+          "type": "cds.Integer"
+        },
+        "statusProfile": {
+          "@cds.persistence.name": "STATUSPROFILE",
+          "type": "cds.String"
+        },
+        "changedOn": {
+          "@cds.persistence.name": "CHANGEDON",
+          "type": "cds.Timestamp"
+        }
+      }
+    }
+  },
+  "version": {
+    "csn": "1.0"
+  },
+  "meta": {
+    "creator": "CDS Compiler v1.15.0"
+  },
+  "$version": "1.0",
+  "@sql_mapping": "plain"
+}
