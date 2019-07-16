@@ -13,10 +13,13 @@
     ],
     "dependencies": {
         "@sap/cds": "^3.13.0",
+        "@sap/hdi-deploy": "^3.11.0",
         "express": "^4.17.1",
         "hdb": "^0.17.0"
     },
-    "devDependencies": {},
+    "devDependencies": {
+        "sqlite3": "^4.0.9"
+    },
     "scripts": {
         "start": "cds run",
         "build": "cds build/all --clean",
