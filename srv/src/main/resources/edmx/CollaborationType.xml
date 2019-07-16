@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
-  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
-    <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
-  </edmx:Reference>
-  <edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
-    <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
-  </edmx:Reference>
   <edmx:DataServices m:DataServiceVersion="2.0">
     <Schema Namespace="CollaborationType" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
       <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
@@ -23,81 +17,6 @@
         <Property Name="statusProfile" Type="Edm.String"/>
         <Property Name="changedOn" Type="Edm.DateTimeOffset"/>
       </EntityType>
-      <Annotations Target="CollaborationType.CollaborationTypeMetadata" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="UI.FieldGroup" Qualifier="HeaderInfoField">
-          <Record Type="UI.FieldGroupType">
-            <PropertyValue Property="Data">
-              <Collection>
-                <Record Type="UI.DataField">
-                  <PropertyValue Property="Value" Path="collaborationTypeId"/>
-                </Record>
-                <Record Type="UI.DataField">
-                  <PropertyValue Property="Value" Path="version"/>
-                </Record>
-              </Collection>
-            </PropertyValue>
-            <PropertyValue Property="Label" String="Header Infomation"/>
-          </Record>
-        </Annotation>
-        <Annotation Term="UI.HeaderFacets">
-          <Collection>
-            <Record Type="UI.ReferenceFacet">
-              <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderInfoField"/>
-            </Record>
-          </Collection>
-        </Annotation>
-        <Annotation Term="UI.HeaderInfo">
-          <Record Type="UI.HeaderInfoType">
-            <PropertyValue Property="Description">
-              <Record Type="UI.DataField">
-                <PropertyValue Property="Value" String="Collaboration Type"/>
-              </Record>
-            </PropertyValue>
-            <PropertyValue Property="Title">
-              <Record Type="UI.DataField">
-                <PropertyValue Property="Value" String="Define Collaboration Type"/>
-              </Record>
-            </PropertyValue>
-          </Record>
-        </Annotation>
-        <Annotation Term="UI.LineItem">
-          <Collection>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="collaborationTypeId"/>
-              <PropertyValue Property="Label" String="Collaboration Type"/>
-            </Record>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="version"/>
-              <PropertyValue Property="Label" String="Version"/>
-            </Record>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="createdOn"/>
-              <PropertyValue Property="Label" String="Create On"/>
-            </Record>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="statusProfile"/>
-              <PropertyValue Property="Label" String="Status Profile"/>
-            </Record>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="state"/>
-              <PropertyValue Property="Label" String="State"/>
-            </Record>
-          </Collection>
-        </Annotation>
-      </Annotations>
-      <Annotations Target="CollaborationType.CollaborationTypeMetadata/collaborationTypeId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
-        <Annotation Term="Common.Label" String="Collaboratioen Type"/>
-      </Annotations>
-      <Annotations Target="CollaborationType.CollaborationTypeMetadata/version" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Version"/>
-      </Annotations>
-      <Annotations Target="CollaborationType.CollaborationTypeMetadata/createdOn" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="Create on"/>
-      </Annotations>
-      <Annotations Target="CollaborationType.CollaborationTypeMetadata/state" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-        <Annotation Term="Common.Label" String="State"/>
-      </Annotations>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
