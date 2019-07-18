@@ -25,9 +25,8 @@ public class collaborationTypeHandler {
 		keys.put("version", String.valueOf(parameters.get("version")));
 		// fetching the product details for the id and fetching the amount
 		try {
-			EntityData entityData = handler.executeRead("CollaborationTypeMetadata", keys,
-					actionRequest.getEntityMetadata().getFlattenedElementNames());
-			Integer state = 2; 
+			EntityData entityData = handler.executeRead("CollaborationTypeMetadata", keys, actionRequest.getEntityMetadata().getFlattenedElementNames());
+		Integer state = 2; 
 //	    update the state value 
 	    entityData = EntityData.getBuilder(entityData).removeElement("state").addElement("state", state).buildEntityData("CollaborationTypeMetadata");
 //	    updating the CollaborationTypeMetadata
