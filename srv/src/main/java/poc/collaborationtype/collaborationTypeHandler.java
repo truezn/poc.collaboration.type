@@ -23,9 +23,10 @@ public class collaborationTypeHandler {
 		Map<String, Object> keys = new HashMap<String, Object>();
 		keys.put("collaborationTypeId", String.valueOf(parameters.get("collaborationTypeId")));
 		keys.put("version", String.valueOf(parameters.get("version")));
-		// fetching the product details for the id and fetching the amount
+		// fetching the collaborationType details for the is and version
 		try {
-			EntityData entityData = handler.executeRead("CollaborationTypeMetadata", keys, actionRequest.getEntityMetadata().getFlattenedElementNames());
+			EntityData entityData = handler.executeRead("CollaborationTypeMetadata", keys, Arrays.asList("collaborationTypeId", "version"));
+//			EntityData entityData = new DefaultEntityData();
 		Integer state = 2; 
 //	    update the state value 
 	    entityData = EntityData.getBuilder(entityData).removeElement("state").addElement("state", state).buildEntityData("CollaborationTypeMetadata");
