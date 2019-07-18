@@ -27,14 +27,13 @@ public class collaborationTypeHandler {
 		try {
 			EntityData entityData = handler.executeRead("CollaborationTypeMetadata", keys, Arrays.asList("collaborationTypeId", "version"));
 //			EntityData entityData = new DefaultEntityData();
-		Integer state = 2; 
+		Integer state = 3; 
 //	    update the state value 
 	    entityData = EntityData.getBuilder(entityData).removeElement("state").addElement("state", state).buildEntityData("CollaborationTypeMetadata");
 //	    updating the CollaborationTypeMetadata
 	    handler.executeUpdate(entityData, keys, false);
 	    
-			OperationResponse response = OperationResponse.setSuccess().setEntityData(Arrays.asList(entityData))
-					.response();
+			OperationResponse response = OperationResponse.setSuccess().setEntityData(Arrays.asList(entityData)).response();
 
 			return response;
 		} catch (DatasourceException e) {
