@@ -4,6 +4,11 @@
     <Schema Namespace="CollaborationType" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
       <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
         <EntitySet Name="CollaborationTypeMetadata" EntityType="CollaborationType.CollaborationTypeMetadata"/>
+        <FunctionImport Name="setToUse" m:HttpMethod="POST">
+          <Parameter Name="collaborationTypeId" Type="Edm.String" Mode="In" Nullable="true"/>
+          <Parameter Name="state" Type="Edm.Int32" Mode="In" Nullable="true"/>
+          <Parameter Name="version" Type="Edm.Int32" Mode="In" Nullable="true"/>
+        </FunctionImport>
       </EntityContainer>
       <EntityType Name="CollaborationTypeMetadata">
         <Key>

@@ -46,6 +46,26 @@
       },
       "$syntax": "projection"
     },
+    "CollaborationType.setToUse": {
+      "kind": "action",
+      "params": {
+        "collaborationTypeId": {
+          "kind": "param",
+          "@cds.persistence.name": "COLLABORATIONTYPEID",
+          "type": "cds.String"
+        },
+        "state": {
+          "kind": "param",
+          "@cds.persistence.name": "STATE",
+          "type": "cds.Integer"
+        },
+        "version": {
+          "kind": "param",
+          "@cds.persistence.name": "VERSION",
+          "type": "cds.Integer"
+        }
+      }
+    },
     "ning.CollaborationType.CollaborationTypeDescription": {
       "kind": "entity",
       "@cds.persistence.name": "NING_COLLABORATIONTYPE_COLLABORATIONTYPEDESCRIPTION",
