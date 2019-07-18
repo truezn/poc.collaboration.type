@@ -22,16 +22,17 @@ public class collaborationTypeHandler {
 
 		Map<String, Object> keys = new HashMap<String, Object>();
 		keys.put("collaborationTypeId", String.valueOf(parameters.get("collaborationTypeId")));
+		keys.put("version", String.valueOf(parameters.get("version")));
 		// fetching the product details for the id and fetching the amount
 		try {
 			EntityData entityData = handler.executeRead("CollaborationTypeMetadata", keys,
 					actionRequest.getEntityMetadata().getFlattenedElementNames());
-//
-//	    //update the state value 
-////	    entityData = EntityData.getBuilder(entityData).removeElement("Amount").addElement("Amount", amount).buildEntityData("Product");
-//	    //updating the product
-//	    handler.executeUpdate(entityData, keys, false);
-//
+			Integer state = 2; 
+//	    update the state value 
+	    entityData = EntityData.getBuilder(entityData).removeElement("state").addElement("state", state).buildEntityData("CollaborationTypeMetadata");
+//	    updating the CollaborationTypeMetadata
+	    handler.executeUpdate(entityData, keys, false);
+	    
 			OperationResponse response = OperationResponse.setSuccess().setEntityData(Arrays.asList(entityData))
 					.response();
 
