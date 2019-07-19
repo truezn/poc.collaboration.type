@@ -131,7 +131,10 @@
 					"ObjectPage|CollaborationTypeMetadata": {
 						"entitySet": "CollaborationTypeMetadata",
 						"component": {
-							"name": "sap.suite.ui.generic.template.ObjectPage"
+							"name": "sap.suite.ui.generic.template.ObjectPage", 
+							"settings": {
+                                        "editableHeaderContent": true
+                                }
 						}
 					}
 				}
