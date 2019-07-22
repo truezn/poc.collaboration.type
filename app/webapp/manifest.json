@@ -64,8 +64,12 @@
 		},
 		"dependencies": {
 			"minUI5Version": "1.38.34",
-			"libs": {},
-			"components": {}
+			"libs": {
+				
+			},
+			"components": {
+				
+			}
 		},
 		"models": {
 			"i18n": {
@@ -101,7 +105,9 @@
 			}
 		},
 		"extends": {
-			"extensions": {}
+			"extensions": {
+				
+			}
 		},
 		"contentDensities": {
 			"compact": true,
@@ -134,6 +140,15 @@
 							"name": "sap.suite.ui.generic.template.ObjectPage",
 							"settings": {
 								"editableHeaderContent": true
+							}
+						},
+						"pages": {
+							"ObjectPage|to_EnterpriseProjectType": {
+								"navigationProperty": "to_EnterpriseProjectType",
+								"entitySet": "EnterpriseProjectType",
+								"component": {
+									"name": "sap.suite.ui.generic.template.ObjectPage"
+								}
 							}
 						}
 					}
