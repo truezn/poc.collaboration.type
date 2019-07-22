@@ -73,19 +73,17 @@
 							<PropertyValue Property="Facets">
 								<Collection>
 									<Record Type="UI.CollectionFacet">
-										<PropertyValue Property="Label" String="Enterprise Project Type">
+										<PropertyValue Property="Label" String="Purpose">
 											<Annotation Term="UI.MultiLineText"/>
 										</PropertyValue>
-										<PropertyValue Property="ID" String="EPT"/>
+										<PropertyValue Property="ID" String="IdFacetPurpose"/>
 										<PropertyValue Property="Facets">
 											<Collection>
 												<Record Type="UI.ReferenceFacet">
-													<PropertyValue Property="Target" AnnotationPath="to_EnterpriseProjectType/@UI.LineItem"/>
+													<PropertyValue Property="Target" AnnotationPath="purpose/@UI.LineItem#IdPurpose"/>
 												</Record>
 											</Collection>
 										</PropertyValue>
-										<Annotation Term="UI.IsSummary"/>
-										<Annotation Term="UI.PartOfPreview"/>
 									</Record>
 								</Collection>
 							</PropertyValue>
@@ -133,16 +131,34 @@
 				<Annotation Term="UI.Facets">
 					<Collection>
 						<Record Type="UI.CollectionFacet">
-							<PropertyValue Property="Label" String=""/>
+							<PropertyValue Property="Label" String="ENT"/>
 							<PropertyValue Property="ID" String="IDEProjectTypeFacet"/>
 							<PropertyValue Property="Facets">
 								<Collection>
 									<Record Type="UI.ReferenceFacet">
 										<PropertyValue Property="Label" String="Enterprise Project Type"/>
-										<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+										<PropertyValue Property="Target" AnnotationPath="@UI.LineItem#EProjType"/>
 									</Record>
 								</Collection>
 							</PropertyValue>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="CollaborationType.CollaborationTypePurpose">
+				<Annotation Term="UI.LineItem" Qualifier="IdPurpose">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="collaborationTypeId"/>
+							<PropertyValue Property="Label" String="Collaboration Type"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="purpose"/>
+							<PropertyValue Property="Label" String="Purpose"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="version"/>
+							<PropertyValue Property="Label" String="Version"/>
 						</Record>
 					</Collection>
 				</Annotation>
