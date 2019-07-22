@@ -65,6 +65,33 @@
 						</Record>
 					</Collection>
 				</Annotation>
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Label" String="ITEMS"/>
+							<PropertyValue Property="ID" String="ITEM"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.CollectionFacet">
+										<PropertyValue Property="Label" String="Enterprise Project Type">
+											<Annotation Term="UI.MultiLineText"/>
+										</PropertyValue>
+										<PropertyValue Property="ID" String="EPT"/>
+										<PropertyValue Property="Facets">
+											<Collection>
+												<Record Type="UI.ReferenceFacet">
+													<PropertyValue Property="Target" AnnotationPath="to_EnterpriseProjectType/@UI.LineItem"/>
+												</Record>
+											</Collection>
+										</PropertyValue>
+										<Annotation Term="UI.IsSummary"/>
+										<Annotation Term="UI.PartOfPreview"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+					</Collection>
+				</Annotation>
 				<Annotation Term="UI.LineItem">
 					<Collection>
 						<Record Type="UI.DataField">
@@ -112,7 +139,7 @@
 								<Collection>
 									<Record Type="UI.ReferenceFacet">
 										<PropertyValue Property="Label" String="Enterprise Project Type"/>
-										<PropertyValue Property="Target" AnnotationPath="@UI.LineItem"/>
+										<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
 									</Record>
 								</Collection>
 							</PropertyValue>
