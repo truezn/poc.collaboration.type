@@ -19,15 +19,15 @@
 				"settings": {
 					"localUri": "localService/metadata.xml",
 					"annotations": [
-						"annotation0"
+						"annotation"
 					]
 				}
 			},
-			"annotation0": {
+			"annotation": {
 				"type": "ODataAnnotation",
-				"uri": "localService/annotation0.xml",
+				"uri": "localService/annotation.xml",
 				"settings": {
-					"localUri": "localService/annotation0.xml"
+					"localUri": "localService/annotation.xml"
 				}
 			}
 		},
@@ -131,10 +131,10 @@
 					"ObjectPage|CollaborationTypeMetadata": {
 						"entitySet": "CollaborationTypeMetadata",
 						"component": {
-							"name": "sap.suite.ui.generic.template.ObjectPage", 
+							"name": "sap.suite.ui.generic.template.ObjectPage",
 							"settings": {
-                                        "editableHeaderContent": true
-                                }
+								"editableHeaderContent": true
+							}
 						}
 					}
 				}
