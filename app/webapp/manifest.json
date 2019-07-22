@@ -143,9 +143,9 @@
 							}
 						},
 						"pages": {
-							"ObjectPage|to_EnterpriseProjectType": {
-								"navigationProperty": "to_EnterpriseProjectType",
-								"entitySet": "EnterpriseProjectType",
+							"ObjectPage|to_CollaborationTypePurpose": {
+								"navigationProperty": "to_CollaborationTypePurpose",
+								"entitySet": "CollaborationTypePurpose",
 								"component": {
 									"name": "sap.suite.ui.generic.template.ObjectPage"
 								}
