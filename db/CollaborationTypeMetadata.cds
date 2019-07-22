@@ -9,6 +9,7 @@ entity CollaborationTypeMetadata {
       state: Integer;
       statusProfile: String;
       changedOn: Timestamp;
+      project : String;
       purpose : Association to many CollaborationTypePurpose on  purpose.collaborationTypeId = $self.collaborationTypeId
     														 and purpose.version  = $self.version
     														 and purpose.language = 'EN';
