@@ -86,6 +86,24 @@
 					</Collection>
 				</Annotation>
 			</Annotations>
+			<Annotations Target="CollaborationType.EnterpriseProjectType">
+				<Annotation Term="UI.LineItem" Qualifier="EProjType">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="CompanyCode"/>
+							<PropertyValue Property="Label" String="Company Code"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="ControllingArea"/>
+							<PropertyValue Property="Label" String="Controlling Area"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Project"/>
+							<PropertyValue Property="Label" String="Project"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
 		</Schema>
 	</edmx:DataServices>
 </edmx:Edmx>
