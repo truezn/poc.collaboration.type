@@ -11,6 +11,22 @@
 	<edmx:DataServices>
 		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zcollaborationType.app.localService.annotation0.CollaborationType">
 			<Annotations Target="CollaborationType.CollaborationTypeMetadata">
+				<Annotation Term="UI.FieldGroup" Qualifier="HeaderFieldsOthers">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="statusProfile"/>
+									<PropertyValue Property="Label" String="Status Profile"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="project"/>
+									<PropertyValue Property="Label" String="Project"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
 				<Annotation Term="UI.Facets">
 					<Collection>
 						<Record Type="UI.CollectionFacet">
@@ -80,14 +96,6 @@
 									<PropertyValue Property="Value" Path="version"/>
 									<PropertyValue Property="Label" String="Version"/>
 								</Record>
-								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="statusProfile"/>
-									<PropertyValue Property="Label" String="{@i18n&gt;STATUS_PROFILE}"/>
-								</Record>
-								<Record Type="UI.DataField">
-									<PropertyValue Property="Value" Path="project"/>
-									<PropertyValue Property="Label" String="Project"/>
-								</Record>
 							</Collection>
 						</PropertyValue>
 					</Record>
@@ -97,6 +105,10 @@
 						<Record Type="UI.ReferenceFacet">
 							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderInfoFields"/>
 							<PropertyValue Property="ID" String="FGHeaderInfoFields"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderFieldsOthers"/>
+							<PropertyValue Property="ID" String="FGHeaderInofOthers"/>
 						</Record>
 					</Collection>
 				</Annotation>
@@ -117,6 +129,10 @@
 						<Record Type="UI.DataField">
 							<PropertyValue Property="Value" Path="changedOn"/>
 							<PropertyValue Property="Label" String="Change On"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="statusProfile"/>
+							<PropertyValue Property="Label" String="Status Profile"/>
 						</Record>
 					</Collection>
 				</Annotation>
