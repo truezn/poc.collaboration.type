@@ -27,6 +27,7 @@
         <Property Name="state" Type="Edm.Int32"/>
         <Property Name="statusProfile" Type="Edm.String"/>
         <Property Name="changedOn" Type="Edm.DateTimeOffset"/>
+        <Property Name="project" Type="Edm.String"/>
         <NavigationProperty Name="purpose" Relationship="CollaborationType.CollaborationTypeMetadata_purpose" FromRole="CollaborationTypeMetadata" ToRole="CollaborationTypePurpose"/>
       </EntityType>
       <EntityType Name="CollaborationTypePurpose">
@@ -36,7 +37,7 @@
           <PropertyRef Name="language"/>
         </Key>
         <Property Name="collaborationTypeId" Type="Edm.String" Nullable="false"/>
-        <Property Name="version" Type="Edm.Int32" Nullable="false"/>
+        <Property Name="version" Type="Edm.String" Nullable="false"/>
         <Property Name="language" Type="Edm.String" Nullable="false"/>
         <Property Name="purpose" Type="Edm.String"/>
       </EntityType>

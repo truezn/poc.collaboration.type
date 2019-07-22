@@ -486,6 +486,10 @@
           "@cds.persistence.name": "CHANGEDON",
           "type": "cds.Timestamp"
         },
+        "project": {
+          "@cds.persistence.name": "PROJECT",
+          "type": "cds.String"
+        },
         "purpose": {
           "@cds.persistence.name": "PURPOSE",
           "type": "cds.Association",
@@ -556,7 +560,7 @@
         "version": {
           "@cds.persistence.name": "VERSION",
           "key": true,
-          "type": "cds.Integer"
+          "type": "cds.String"
         },
         "language": {
           "@cds.persistence.name": "LANGUAGE",
@@ -753,6 +757,10 @@
           "@cds.persistence.name": "CHANGEDON",
           "type": "cds.Timestamp"
         },
+        "project": {
+          "@cds.persistence.name": "PROJECT",
+          "type": "cds.String"
+        },
         "purpose": {
           "@cds.persistence.name": "PURPOSE",
           "type": "cds.Association",
@@ -859,7 +867,7 @@
         "version": {
           "@cds.persistence.name": "VERSION",
           "key": true,
-          "type": "cds.Integer"
+          "type": "cds.String"
         },
         "language": {
           "@cds.persistence.name": "LANGUAGE",

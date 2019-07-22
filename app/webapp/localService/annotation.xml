@@ -11,6 +11,33 @@
 	<edmx:DataServices>
 		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zcollaborationType.app.localService.annotation0.CollaborationType">
 			<Annotations Target="CollaborationType.CollaborationTypeMetadata">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.CollectionFacet">
+										<PropertyValue Property="Label" String="Purpose">
+											<Annotation Term="UI.MultiLineText"/>
+										</PropertyValue>
+										<PropertyValue Property="ID" String="IDPurpose"/>
+										<PropertyValue Property="Facets">
+											<Collection>
+												<Record Type="UI.ReferenceFacet">
+													<PropertyValue Property="Target" AnnotationPath="purpose/@UI.LineItem#IdPurpose"/>
+												</Record>
+											</Collection>
+										</PropertyValue>
+										<Annotation Term="UI.IsSummary"/>
+										<Annotation Term="UI.PartOfPreview"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="Items"/>
+							<PropertyValue Property="ID" String="IdItems"/>
+						</Record>
+					</Collection>
+				</Annotation>
 				<Annotation Term="UI.Identification">
 					<Collection>
 						<Record Type="UI.DataFieldForAction">
@@ -53,6 +80,14 @@
 									<PropertyValue Property="Value" Path="version"/>
 									<PropertyValue Property="Label" String="Version"/>
 								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="statusProfile"/>
+									<PropertyValue Property="Label" String="{@i18n&gt;STATUS_PROFILE}"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="project"/>
+									<PropertyValue Property="Label" String="Project"/>
+								</Record>
 							</Collection>
 						</PropertyValue>
 					</Record>
@@ -62,31 +97,6 @@
 						<Record Type="UI.ReferenceFacet">
 							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderInfoFields"/>
 							<PropertyValue Property="ID" String="FGHeaderInfoFields"/>
-						</Record>
-					</Collection>
-				</Annotation>
-				<Annotation Term="UI.Facets">
-					<Collection>
-						<Record Type="UI.CollectionFacet">
-							<PropertyValue Property="Label" String="ITEMS"/>
-							<PropertyValue Property="ID" String="ITEM"/>
-							<PropertyValue Property="Facets">
-								<Collection>
-									<Record Type="UI.CollectionFacet">
-										<PropertyValue Property="Label" String="Purpose">
-											<Annotation Term="UI.MultiLineText"/>
-										</PropertyValue>
-										<PropertyValue Property="ID" String="IdFacetPurpose"/>
-										<PropertyValue Property="Facets">
-											<Collection>
-												<Record Type="UI.ReferenceFacet">
-													<PropertyValue Property="Target" AnnotationPath="purpose/@UI.LineItem#IdPurpose"/>
-												</Record>
-											</Collection>
-										</PropertyValue>
-									</Record>
-								</Collection>
-							</PropertyValue>
 						</Record>
 					</Collection>
 				</Annotation>

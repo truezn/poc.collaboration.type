@@ -32,6 +32,7 @@
 				<Property Name="state" Type="Edm.Int32"/>
 				<Property Name="statusProfile" Type="Edm.String"/>
 				<Property Name="changedOn" Type="Edm.DateTimeOffset"/>
+				<Property Name="project" Type="Edm.String"/>
 				<NavigationProperty Name="purpose" Relationship="CollaborationType.CollaborationTypeMetadata_purpose" FromRole="CollaborationTypeMetadata"
 					ToRole="CollaborationTypePurpose"/>
 			</EntityType>
