@@ -6,4 +6,5 @@ service CollaborationType {
     action setToUse(collaborationTypeId:String, state:Integer, version:String);
     entity CollaborationTypePurpose as projection on purpose.CollaborationTypePurpose;
     entity EnterpriseProjectType as projection on projectType.A_EnterpriseProjectType;
+    
 }

@@ -2,7 +2,7 @@
   "welcomeFile": "/webapp/test/flpSandbox.html",
   "routes": [
     {
-      "path": "srv_api/odata/v2",
+      "path": "/odata/v2",
       "target": {
         "type": "destination",
         "name": "destination-placeholder",
