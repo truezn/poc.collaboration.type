@@ -1,5 +1,6 @@
 package poc.collaborationtype;
 
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -8,10 +9,10 @@ import java.util.Map;
 import org.slf4j.Logger;
 
 import com.sap.cloud.sdk.service.prov.api.annotations.Action;
-import com.sap.cloud.sdk.service.prov.api.annotations.Function;
-import com.sap.cloud.sdk.service.prov.api.exception.DatasourceException;
 import com.sap.cloud.sdk.service.prov.api.operations.Create;
 import com.sap.cloud.sdk.service.prov.api.operations.Query;
+
+import com.sap.cloud.sdk.service.prov.api.exception.DatasourceException;
 import com.sap.cloud.sdk.service.prov.api.request.CreateRequest;
 import com.sap.cloud.sdk.service.prov.api.request.OperationRequest;
 import com.sap.cloud.sdk.service.prov.api.request.QueryRequest;
@@ -29,52 +30,10 @@ import com.sap.cloud.sdk.service.prov.api.ExtensionHelper;
 import com.sap.cloud.sdk.s4hana.datamodel.odata.services.DefaultEnterpriseProjectService;
 import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.enterpriseproject.EnterpriseProject;
 
-
-
-public class collaborationTypeHandler {
-	
-	
-//	Logger logger = LoggerFactory.getLogger(S4BookshopService.class);
-
-	private static final String DESTINATION_NAME = "APIHubProject"; //Refers to the destination created in Step 6
-	private static final String apikey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"; //Replace with your API key
-
-	private ErpConfigContext context = new ErpConfigContext(DESTINATION_NAME);
-//
-	@Query(serviceName = "CollaborationType", entity = "EnterpriseProjectType")
-	public QueryResponse queryEnterpriseProjectType(QueryRequest queryRequest) {
-		QueryResponse queryResponse;
-	    int top = queryRequest.getTopOptionValue();
-	    int skip = queryRequest.getSkipOptionValue();
-
-	    try {
-	    	// Create Map containing request header information
-	        	Map<String, String> requestHeaders = new HashMap<>();
-	        	requestHeaders.put("Content-Type","application/json");
-	        	requestHeaders.put("APIKey",apikey);
-
-	    	final List<EnterpriseProject> enterpriseProject =
-	    	             new DefaultEnterpriseProjectService().getAllEnterpriseProject()
-	    	            .withCustomHttpHeaders(requestHeaders).onRequestAndImplicitRequests()
-	    	            .select(EnterpriseProject.ALL_FIELDS)
-	    	            .top(top >= 0 ? top : 50)
-	    	            .skip(skip >= 0 ? skip : -1)
-	    	           .execute(context);
-	    	queryResponse = QueryResponse.setSuccess().setData(enterpriseProject).response();
-
-	    } catch (final ODataException e) {
-//	    	logger.error("Error occurred with the Query operation: " + e.getMessage(), e);
-	    	ErrorResponse er = ErrorResponse.getBuilder()
-	    	                            .setMessage("Error occurred with the Query operation: " + e.getMessage())
-	    	                            .setStatusCode(500).setCause(e).response();
-	    	queryResponse = QueryResponse.setError(er);
-	    }
-
-		  return queryResponse;
-	}
+public class CollaborationType {
 	
 	@Create(serviceName = "CollaborationType", entity = "CollaborationTypeMetadata")
-	public CreateResponse addCustomer(CreateRequest createRequest, ExtensionHelper extensionHelper) {
+	public CreateResponse addCollaborationTypeMetadata(CreateRequest createRequest, ExtensionHelper extensionHelper) {
 
 //	    logger.info("Creating Customer");
 	    DataSourceHandler handler = extensionHelper.getHandler();
@@ -134,6 +93,45 @@ public class collaborationTypeHandler {
 			return OperationResponse.setError(errorResponse);
 		}
 
+	}
+	
+//	Logger logger = LoggerFactory.getLogger(S4BookshopService.class);
+
+	private static final String DESTINATION_NAME = "APIHubProject"; //Refers to the destination created in Step 6
+	private static final String apikey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"; //Replace with your API key
+
+	private ErpConfigContext context = new ErpConfigContext(DESTINATION_NAME);
+
+	@Query(serviceName = "CollaborationType", entity = "CollaborationTypeMetadata")
+	public QueryResponse queryCollaborationTypeMetadata(QueryRequest queryRequest) {
+		QueryResponse queryResponse;
+	    int top = queryRequest.getTopOptionValue();
+	    int skip = queryRequest.getSkipOptionValue();
+
+	    try {
+	    	// Create Map containing request header information
+	        	Map<String, String> requestHeaders = new HashMap<>();
+	        	requestHeaders.put("Content-Type","application/json");
+	        	requestHeaders.put("APIKey",apikey);
+
+	    	final List<EnterpriseProject> enterpriseProject =
+	    	             new DefaultEnterpriseProjectService().getAllEnterpriseProject()
+	    	            .withCustomHttpHeaders(requestHeaders).onRequestAndImplicitRequests()
+	    	            .select(EnterpriseProject.ALL_FIELDS)
+	    	            .top(top >= 0 ? top : 50)
+	    	            .skip(skip >= 0 ? skip : -1)
+	    	           .execute(context);
+	    	queryResponse = QueryResponse.setSuccess().setData(enterpriseProject).response();
+
+	    } catch (final ODataException e) {
+//	    	logger.error("Error occurred with the Query operation: " + e.getMessage(), e);
+	    	ErrorResponse er = ErrorResponse.getBuilder()
+	    	                            .setMessage("Error occurred with the Query operation: " + e.getMessage())
+	    	                            .setStatusCode(500).setCause(e).response();
+	    	queryResponse = QueryResponse.setError(er);
+	    }
+
+		  return queryResponse;
 	}
 
 }
