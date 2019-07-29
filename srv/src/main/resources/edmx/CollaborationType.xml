@@ -5,6 +5,7 @@
       <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
         <EntitySet Name="CollaborationTypeMetadata" EntityType="CollaborationType.CollaborationTypeMetadata"/>
         <EntitySet Name="CollaborationTypePurpose" EntityType="CollaborationType.CollaborationTypePurpose"/>
+        <EntitySet Name="EnterpriseProjects" EntityType="CollaborationType.EnterpriseProjects"/>
         <FunctionImport Name="setToUse" m:HttpMethod="POST">
           <Parameter Name="collaborationTypeId" Type="Edm.String" Mode="In" Nullable="true"/>
           <Parameter Name="state" Type="Edm.Int32" Mode="In" Nullable="true"/>
@@ -39,6 +40,30 @@
         <Property Name="version" Type="Edm.String" Nullable="false"/>
         <Property Name="language" Type="Edm.String" Nullable="false"/>
         <Property Name="purpose" Type="Edm.String"/>
+      </EntityType>
+      <EntityType Name="EnterpriseProjects">
+        <Key>
+          <PropertyRef Name="ProjectUUID"/>
+        </Key>
+        <Property Name="ProjectUUID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="ProjectInternalID" Type="Edm.String" MaxLength="24"/>
+        <Property Name="Project" Type="Edm.String" MaxLength="24"/>
+        <Property Name="ProjectDescription" Type="Edm.String" MaxLength="40"/>
+        <Property Name="EnterpriseProjectType" Type="Edm.String" MaxLength="2"/>
+        <Property Name="PriorityCode" Type="Edm.String" MaxLength="3"/>
+        <Property Name="ProjectStartDate" Type="Edm.DateTime" sap:display-format="Date"/>
+        <Property Name="ProjectEndDate" Type="Edm.DateTime" sap:display-format="Date"/>
+        <Property Name="ProcessingStatus" Type="Edm.String" MaxLength="2"/>
+        <Property Name="ResponsibleCostCenter" Type="Edm.String" MaxLength="10"/>
+        <Property Name="ProfitCenter" Type="Edm.String" MaxLength="10"/>
+        <Property Name="ProjectManagerUUID" Type="Edm.Guid"/>
+        <Property Name="ProjectProfileCode" Type="Edm.String" MaxLength="7"/>
+        <Property Name="FunctionalArea" Type="Edm.String" MaxLength="16"/>
+        <Property Name="CompanyCode" Type="Edm.String" MaxLength="4"/>
+        <Property Name="ControllingArea" Type="Edm.String" MaxLength="4"/>
+        <Property Name="Plant" Type="Edm.String" MaxLength="4"/>
+        <Property Name="Location" Type="Edm.String" MaxLength="10"/>
+        <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset"/>
       </EntityType>
       <Association Name="CollaborationTypeMetadata_purpose">
         <End Role="CollaborationTypeMetadata" Type="CollaborationType.CollaborationTypeMetadata" Multiplicity="*"/>
