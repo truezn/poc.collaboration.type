@@ -1,8 +1,7 @@
-using ning.CollaborationType as my from '../db/CollaborationTypeMetadata';
-using ning.CollaborationTypePurpose as purpose from '../db/CollaborationTypePurpose';
+using ning.CollaborationType as db from '../db/data-model';
 
 service CollaborationType {
-    entity CollaborationTypeMetadata as projection on my.CollaborationTypeMetadata;
+    entity CollaborationTypeMetadata as projection on db.CollaborationTypeMetadata;
     action setToUse(collaborationTypeId:String, state:Integer, version:String);
-    entity CollaborationTypePurpose as projection on purpose.CollaborationTypePurpose;
+    entity CollaborationTypePurpose as projection on db.CollaborationTypePurpose;
 }
