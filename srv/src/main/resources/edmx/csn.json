@@ -1,5 +1,5 @@
 {
-  "namespace": "ning.CollaborationType",
+  "namespace": "poc.CollaborationType",
   "definitions": {
     "CollaborationType": {
       "kind": "service"
@@ -11,7 +11,7 @@
         "SELECT": {
           "from": {
             "ref": [
-              "ning.CollaborationType.CollaborationTypeMetadata"
+              "poc.CollaborationType.CollaborationTypeMetadata"
             ]
           }
         }
@@ -103,7 +103,7 @@
         "SELECT": {
           "from": {
             "ref": [
-              "ning.CollaborationTypePurpose.CollaborationTypePurpose"
+              "poc.CollaborationType.CollaborationTypePurpose"
             ]
           }
         }
@@ -151,9 +151,9 @@
         }
       }
     },
-    "ning.CollaborationType.CollaborationTypeDescription": {
+    "poc.CollaborationType.CollaborationTypeDescription": {
       "kind": "entity",
-      "@cds.persistence.name": "NING_COLLABORATIONTYPE_COLLABORATIONTYPEDESCRIPTION",
+      "@cds.persistence.name": "POC_COLLABORATIONTYPE_COLLABORATIONTYPEDESCRIPTION",
       "elements": {
         "collaborationTypeId": {
           "@cds.persistence.name": "COLLABORATIONTYPEID",
@@ -176,9 +176,9 @@
         }
       }
     },
-    "ning.CollaborationType.CollaborationTypeMetadata": {
+    "poc.CollaborationType.CollaborationTypeMetadata": {
       "kind": "entity",
-      "@cds.persistence.name": "NING_COLLABORATIONTYPE_COLLABORATIONTYPEMETADATA",
+      "@cds.persistence.name": "POC_COLLABORATIONTYPE_COLLABORATIONTYPEMETADATA",
       "elements": {
         "collaborationTypeId": {
           "@cds.persistence.name": "COLLABORATIONTYPEID",
@@ -216,7 +216,7 @@
           "cardinality": {
             "max": "*"
           },
-          "target": "ning.CollaborationTypePurpose.CollaborationTypePurpose",
+          "target": "poc.CollaborationType.CollaborationTypePurpose",
           "on": [
             {
               "ref": [
@@ -262,7 +262,7 @@
           "cardinality": {
             "max": "*"
           },
-          "target": "ning.CollaborationType.CollaborationTypeDescription",
+          "target": "poc.CollaborationType.CollaborationTypeDescription",
           "on": [
             {
               "ref": [
@@ -304,9 +304,9 @@
         }
       }
     },
-    "ning.CollaborationTypePurpose.CollaborationTypePurpose": {
+    "poc.CollaborationType.CollaborationTypePurpose": {
       "kind": "entity",
-      "@cds.persistence.name": "NING_COLLABORATIONTYPEPURPOSE_COLLABORATIONTYPEPURPOSE",
+      "@cds.persistence.name": "POC_COLLABORATIONTYPE_COLLABORATIONTYPEPURPOSE",
       "elements": {
         "collaborationTypeId": {
           "@cds.persistence.name": "COLLABORATIONTYPEID",

@@ -1,4 +1,4 @@
-using ning.CollaborationType as db from '../db/data-model';
+using poc.CollaborationType as db from '../db/data-model';
 
 service CollaborationType {
     entity CollaborationTypeMetadata as projection on db.CollaborationTypeMetadata;

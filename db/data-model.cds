@@ -1,7 +1,5 @@
 namespace poc.CollaborationType;
 
-using ning.CollaborationTypePurpose.CollaborationTypePurpose from './CollaborationTypePurpose';
-
 entity CollaborationTypeMetadata {
   key collaborationTypeId : String;
   key version : String;
