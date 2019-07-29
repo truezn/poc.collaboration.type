@@ -21,15 +21,10 @@ modules:
         properties:
           url: ${default-url}
     requires:
-      - name: zcollaborationType-dest
-      - name: zcollaborationType-uaa
       - name: zcollaborationType-db-hdi-container
         properties:
           JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml:
             {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
-
-  
-
 
   - name: app
     type: html5
@@ -50,20 +45,6 @@ modules:
      - name: uaa_zcollaborationType
 
 resources:
-  - name: zcollaborationType-dest
-    type: org.cloudfoundry.managed-service
-    parameters:
-      service: destination
-      service-plan: lite
-  - name: zcollaborationType-uaa
-    type: org.cloudfoundry.managed-service
-    parameters:
-      service: xsuaa
-      service-plan: application
-      parameters:
-        config:
-            xsappname: 'zcollaborationType'
-            tenant-mode: dedicated
   - name: zcollaborationType-db-hdi-container
     type: com.sap.xs.hdi-container
     properties:
