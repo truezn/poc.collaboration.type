@@ -1,4 +1,4 @@
-namespace ning.CollaborationType;
+namespace poc.CollaborationType;
 
 using ning.CollaborationTypePurpose.CollaborationTypePurpose from './CollaborationTypePurpose';
 
@@ -17,6 +17,14 @@ entity CollaborationTypeMetadata {
     																and description.version = $self.version
     																and description.language = 'EN'
       
+}
+
+entity CollaborationTypePurpose {
+	
+	key collaborationTypeId:String;
+	key version:String;
+	key language:String;
+	    purpose:String;
 }
 
 entity CollaborationTypeDescription {
