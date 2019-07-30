@@ -135,7 +135,7 @@ public class CollaborationType {
     	queryResponse = QueryResponse.setSuccess().setData(suppliers).response();
 
     } catch (final ODataException e) {
-    	logger.error("Error occurred with the Query operation: " + e.getMessage(), e);
+//    	logger.error("Error occurred with the Query operation: " + e.getMessage(), e);
     	ErrorResponse er = ErrorResponse.getBuilder()
     	                            .setMessage("Error occurred with the Query operation: " + e.getMessage())
     	                            .setStatusCode(500).setCause(e).response();
