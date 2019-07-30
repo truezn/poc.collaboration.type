@@ -26,8 +26,8 @@ import com.sap.cloud.sdk.service.prov.api.DataSourceHandler;
 import com.sap.cloud.sdk.service.prov.api.EntityData;
 import com.sap.cloud.sdk.service.prov.api.ExtensionHelper;
 
-import com.sap.cloud.sdk.s4hana.datamodel.odata.services.DefaultEnterpriseProjectService;
-import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.enterpriseproject.EnterpriseProject;
+// import com.sap.cloud.sdk.s4hana.datamodel.odata.services.DefaultEnterpriseProjectService;
+// import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.enterpriseproject.EnterpriseProject;
 
 public class CollaborationType {
 
@@ -100,39 +100,46 @@ public class CollaborationType {
 
 	// Logger logger = LoggerFactory.getLogger(S4BookshopService.class);
 
-	private static final String DESTINATION_NAME = "APIHubProject"; // Refers to the destination created in Step 6
-	private static final String apikey = "dJ6uFzfpbYFvTB3AUz2H1wL4AURielDX"; // Replace with your API key
+	// private static final String DESTINATION_NAME = "APIHubProject"; // Refers to
+	// the destination created in Step 6
+	// private static final String apikey = "dJ6uFzfpbYFvTB3AUz2H1wL4AURielDX"; //
+	// Replace with your API key
 
-	private ErpConfigContext context = new ErpConfigContext(DESTINATION_NAME);
+	// private ErpConfigContext context = new ErpConfigContext(DESTINATION_NAME);
 
-	@Query(serviceName = "CollaborationType", entity = "EnterpriseProjects")
-	public QueryResponse queryCollaborationTypeMetadata(QueryRequest queryRequest) {
-		QueryResponse queryResponse;
-		int top = queryRequest.getTopOptionValue();
-		int skip = queryRequest.getSkipOptionValue();
+	// @Query(serviceName = "CollaborationType", entity = "EnterpriseProjects")
+	// public QueryResponse queryCollaborationTypeMetadata(QueryRequest
+	// queryRequest) {
+	// QueryResponse queryResponse;
+	// int top = queryRequest.getTopOptionValue();
+	// int skip = queryRequest.getSkipOptionValue();
 
-		try {
-			// Create Map containing request header information
-			Map<String, String> requestHeaders = new HashMap<>();
-			requestHeaders.put("Content-Type", "application/json");
-			requestHeaders.put("APIKey", apikey);
+	// try {
+	// // Create Map containing request header information
+	// Map<String, String> requestHeaders = new HashMap<>();
+	// requestHeaders.put("Content-Type", "application/json");
+	// requestHeaders.put("APIKey", apikey);
 
-			final List<EnterpriseProject> enterpriseProject = new DefaultEnterpriseProjectService()
-					.getAllEnterpriseProject().withCustomHttpHeaders(requestHeaders).onRequestAndImplicitRequests()
-					.select(EnterpriseProject.ALL_FIELDS).top(top >= 0 ? top : 50).skip(skip >= 0 ? skip : -1)
-					.execute(context);
-			queryResponse = QueryResponse.setSuccess().setData(enterpriseProject).response();
+	// final List<EnterpriseProject> enterpriseProject = new
+	// DefaultEnterpriseProjectService()
+	// .getAllEnterpriseProject().withCustomHttpHeaders(requestHeaders).onRequestAndImplicitRequests()
+	// .select(EnterpriseProject.ALL_FIELDS).top(top >= 0 ? top : 50).skip(skip >= 0
+	// ? skip : -1)
+	// .execute(context);
+	// queryResponse =
+	// QueryResponse.setSuccess().setData(enterpriseProject).response();
 
-		} catch (final ODataException e) {
-			// logger.error("Error occurred with the Query operation: " + e.getMessage(),
-			// e);
-			ErrorResponse er = ErrorResponse.getBuilder()
-					.setMessage("Error occurred with the Query operation: " + e.getMessage()).setStatusCode(500)
-					.setCause(e).response();
-			queryResponse = QueryResponse.setError(er);
-		}
+	// } catch (final ODataException e) {
+	// // logger.error("Error occurred with the Query operation: " + e.getMessage(),
+	// // e);
+	// ErrorResponse er = ErrorResponse.getBuilder()
+	// .setMessage("Error occurred with the Query operation: " +
+	// e.getMessage()).setStatusCode(500)
+	// .setCause(e).response();
+	// queryResponse = QueryResponse.setError(er);
+	// }
 
-		return queryResponse;
-	}
+	// return queryResponse;
+	// }
 
 }
