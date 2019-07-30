@@ -19,8 +19,12 @@ modules:
     provides:
       - name: srv_api
         properties:
+          ALLOW_MOCKED_AUTH_HEADER : true
           url: ${default-url}
     requires:
+      requires:
+      - name: zcollaborationType-dest
+      - name: zcollaborationType-uaa
       - name: zcollaborationType-db-hdi-container
         properties:
           JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml:
@@ -56,4 +60,19 @@ resources:
        service-plan: application
        service: xsuaa
     type: org.cloudfoundry.managed-service
+    
+  - name: zcollaborationType-dest
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
+  - name: zcollaborationType-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      parameters:
+        config:
+            xsappname: 'zcollaborationType'
+            tenant-mode: dedicated
 

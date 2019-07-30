@@ -5,6 +5,7 @@
       <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
         <EntitySet Name="CollaborationTypeMetadata" EntityType="CollaborationType.CollaborationTypeMetadata"/>
         <EntitySet Name="CollaborationTypePurpose" EntityType="CollaborationType.CollaborationTypePurpose"/>
+        <EntitySet Name="Suppliers" EntityType="CollaborationType.Suppliers"/>
         <FunctionImport Name="setToUse" m:HttpMethod="POST">
           <Parameter Name="collaborationTypeId" Type="Edm.String" Mode="In" Nullable="true"/>
           <Parameter Name="state" Type="Edm.Int32" Mode="In" Nullable="true"/>
@@ -39,6 +40,45 @@
         <Property Name="version" Type="Edm.String" Nullable="false"/>
         <Property Name="language" Type="Edm.String" Nullable="false"/>
         <Property Name="purpose" Type="Edm.String"/>
+      </EntityType>
+      <EntityType Name="Suppliers">
+        <Key>
+          <PropertyRef Name="Supplier"/>
+        </Key>
+        <Property Name="Supplier" Type="Edm.String" MaxLength="10" Nullable="false"/>
+        <Property Name="AlternativePayeeAccountNumber" Type="Edm.String" MaxLength="10"/>
+        <Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="4"/>
+        <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12"/>
+        <Property Name="CreationDate" Type="Edm.DateTime" sap:display-format="Date"/>
+        <Property Name="Customer" Type="Edm.String" MaxLength="10"/>
+        <Property Name="PaymentIsBlockedForSupplier" Type="Edm.Boolean"/>
+        <Property Name="PostingIsBlocked" Type="Edm.Boolean"/>
+        <Property Name="PurchasingIsBlocked" Type="Edm.Boolean"/>
+        <Property Name="SupplierAccountGroup" Type="Edm.String" MaxLength="4"/>
+        <Property Name="SupplierFullName" Type="Edm.String" MaxLength="220"/>
+        <Property Name="SupplierName" Type="Edm.String" MaxLength="80"/>
+        <Property Name="VATRegistration" Type="Edm.String" MaxLength="20"/>
+        <Property Name="BirthDate" Type="Edm.DateTime" sap:display-format="Date"/>
+        <Property Name="ConcatenatedInternationalLocNo" Type="Edm.String" MaxLength="20"/>
+        <Property Name="DeletionIndicator" Type="Edm.Boolean"/>
+        <Property Name="FiscalAddress" Type="Edm.String" MaxLength="10"/>
+        <Property Name="Industry" Type="Edm.String" MaxLength="4"/>
+        <Property Name="InternationalLocationNumber1" Type="Edm.String" MaxLength="7"/>
+        <Property Name="InternationalLocationNumber2" Type="Edm.String" MaxLength="5"/>
+        <Property Name="InternationalLocationNumber3" Type="Edm.String" MaxLength="1"/>
+        <Property Name="IsNaturalPerson" Type="Edm.String" MaxLength="1"/>
+        <Property Name="ResponsibleType" Type="Edm.String" MaxLength="2"/>
+        <Property Name="SuplrQltyInProcmtCertfnValidTo" Type="Edm.DateTime" sap:display-format="Date"/>
+        <Property Name="SuplrQualityManagementSystem" Type="Edm.String" MaxLength="4"/>
+        <Property Name="SupplierCorporateGroup" Type="Edm.String" MaxLength="10"/>
+        <Property Name="SupplierProcurementBlock" Type="Edm.String" MaxLength="2"/>
+        <Property Name="TaxNumber1" Type="Edm.String" MaxLength="16"/>
+        <Property Name="TaxNumber2" Type="Edm.String" MaxLength="11"/>
+        <Property Name="TaxNumber3" Type="Edm.String" MaxLength="18"/>
+        <Property Name="TaxNumber4" Type="Edm.String" MaxLength="18"/>
+        <Property Name="TaxNumber5" Type="Edm.String" MaxLength="60"/>
+        <Property Name="TaxNumberResponsible" Type="Edm.String" MaxLength="18"/>
+        <Property Name="TaxNumberType" Type="Edm.String" MaxLength="2"/>
       </EntityType>
       <Association Name="CollaborationTypeMetadata_purpose">
         <End Role="CollaborationTypeMetadata" Type="CollaborationType.CollaborationTypeMetadata" Multiplicity="*"/>
