@@ -1,6 +1,5 @@
 package poc.collaborationtype;
 
-
 import java.util.*;
 
 import com.sap.cloud.sdk.service.prov.api.annotations.*;
@@ -18,7 +17,7 @@ import com.sap.cloud.sdk.s4hana.datamodel.odata.services.DefaultEnterpriseProjec
 import com.sap.cloud.sdk.s4hana.datamodel.odata.namespaces.enterpriseproject.EnterpriseProject;
 
 public class EnterpriseProjectSrv {
-	
+
 	private static final String DESTINATION_NAME = "APIHubBP";
 	private static final String apikey = "dJ6uFzfpbYFvTB3AUz2H1wL4AURielDX";
 	private ErpConfigContext context = new ErpConfigContext(DESTINATION_NAME);
@@ -36,10 +35,10 @@ public class EnterpriseProjectSrv {
 			requestHeaders.put("Content-Type", "application/json");
 			requestHeaders.put("APIKey", apikey);
 
-			final List<EnterpriseProject> enterpriseProjects = new DefaultEnterpriseProjectService().getAllEnterpriseProject()
-					.withCustomHttpHeaders(requestHeaders).onRequestAndImplicitRequests()
-					.select(EnterpriseProject.ALL_FIELDS).top(top >= 0 ? top : 50)
-					.skip(skip >= 0 ? skip : -1).execute(context);
+			final List<EnterpriseProject> enterpriseProjects = new DefaultEnterpriseProjectService()
+					.getAllEnterpriseProject().withCustomHttpHeaders(requestHeaders).onRequestAndImplicitRequests()
+					.select(EnterpriseProject.ALL_FIELDS).top(top >= 0 ? top : 50).skip(skip >= 0 ? skip : -1)
+					.execute(context);
 			queryResponse = QueryResponse.setSuccess().setData(enterpriseProjects).response();
 
 		} catch (final ODataException e) {
@@ -51,7 +50,5 @@ public class EnterpriseProjectSrv {
 
 		return queryResponse;
 	}
-	
-	
 
 }
